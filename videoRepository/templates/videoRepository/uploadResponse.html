@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Upload Results For {{ fullName }}</title>
+	<link rel="stylesheet" href="{% static 'videoRepository/css/jquery-ui.css' %}">
+	<link rel="stylesheet" href="{% static 'videoRepository/css/videoRepository.css' %}">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		if (!window.jQuery)
+			document.write("<script src=\"{% static 'videoRepository/js/jquery-1.11.1.js' %}\"><\/script>");
+	</script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<script>
+		if (!window.jQuery.ui)
+			document.write("<script src=\"{% static 'videoRepository/js/jquery-ui-1.11.2.js' %}\"><\/script>");
+	</script>
+	<script src="{% static 'videoRepository/js/jquery.cookie.js' %}"></script>
+	<script src="{% static 'videoRepository/js/videoRepository.js' %}"></script>
+</head>
+
+<body>
+	<header>
+		<h1>Upload Results For {{ fullName }}</h1>
+	</header>
+	<br/>
+	<section>
+		{% for msg in serverMessages %}
+			<span class="VRText">{{ msg }}</span><br/>
+		{% endfor %}
+	</section>
+	<section class="contentSection">
+		<br/><br/>
+		<form action='/UserRepository/{{ username }}/'>
+			<input class="VRButton" type="submit" value="Back To Repository...">
+		</form>
+	</section>
+	<section class="contentSection">
+		<br/><p>You are logged in as '{{ username }}'.   <a href="/logout/">Log Out</a></p>
+	</section>
+</body>
+<html>

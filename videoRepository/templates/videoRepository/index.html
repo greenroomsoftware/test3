@@ -1,0 +1,56 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome to the Test 3 Video Repository!</title>
+	<link rel="stylesheet" href="{% static 'videoRepository/css/jquery-ui.css' %}">
+	<link rel="stylesheet" href="{% static 'videoRepository/css/videoRepository.css' %}">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		if (!window.jQuery)
+			document.write("<script src=\"{% static 'videoRepository/js/jquery-1.11.1.js' %}\"><\/script>");
+	</script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<script>
+		if (!window.jQuery.ui)
+			document.write("<script src=\"{% static 'videoRepository/js/jquery-ui-1.11.2.js' %}\"><\/script>");
+	</script>
+	<script src="{% static 'videoRepository/js/jquery.cookie.js' %}"></script>
+	<script src="{% static 'videoRepository/js/videoRepository.js' %}"></script>
+</head>
+
+<body>
+	<header>
+		<h1 class="h1Center">Welcome to the Test 3 Video Repository!</h1>
+	</header>
+	<section class="contentSection">
+		<p>Please log in to view your repository:</p>
+		<form action="/" method="post" class="VRForm">		<!-- Please note that csrf token is set using submitVRForm() in videoRepository.js -->
+			<fieldset>
+				{{ loginForm.as_p }}
+				<input type="submit" value="Login" class="VRButton"/>
+			</fieldset>
+		</form>
+	</section>
+	<section class="contentSection">
+		<p>New user? Please create a new account:</p>
+		<form action="/" method="post" class="VRForm">		<!-- Please note that csrf token is set using submitVRForm() in videoRepository.js -->
+			<fieldset>
+				{{ newUserForm.as_p }}
+				<input type="submit" value="Create Account" class="VRButton"/>
+			</fieldset>
+		</form>
+	</section>
+	<section class="fullSection">
+	{% if serverMessage %}
+		<p>{{ serverMessage }}</p>	
+	{% endif %}
+	</section>
+	<section class="fullSection">
+		<p>Sourcecode can be <a href=".">downloaded here.</a></p>
+	</section>
+</body>
+</html>
+

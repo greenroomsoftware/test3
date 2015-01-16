@@ -1,0 +1,8 @@
+*.pyc
+*~
+*.zip
+*.sqlite3
+temp/*
+videoRepository/static/media/*
+
+

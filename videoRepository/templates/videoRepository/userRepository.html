@@ -1,0 +1,80 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Video Repository For {{ videoList.0.0 }}</title>
+	<link rel="stylesheet" href="{% static 'videoRepository/css/jquery-ui.css' %}">
+	<link rel="stylesheet" href="{% static 'videoRepository/css/videoRepository.css' %}">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		if (!window.jQuery)
+			document.write("<script src=\"{% static 'videoRepository/js/jquery-1.11.1.js' %}\"><\/script>");
+	</script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<script>
+		if (!window.jQuery.ui)
+			document.write("<script src=\"{% static 'videoRepository/js/jquery-ui-1.11.2.js' %}\"><\/script>");
+	</script>
+	<script src="{% static 'videoRepository/js/jquery.cookie.js' %}"></script>
+	<script src="{% static 'videoRepository/js/videoRepository.js' %}"></script>
+	<script src="{% static 'videoRepository/js/userRepository.js' %}"></script>
+</head>
+
+<body>
+	<header>
+		<h1>Video Repository For {{ videoList.0.0 }}</h1>
+	</header>
+	<section>
+		<br/>
+		<table class="VRTable">
+			<tr>
+				<th><div class="VRTable-Title">Title</div></th>
+				<th><div class="VRTable-Version">Version</div></th>
+				<th><div class="VRTable-ReleaseDate">Release Date</div></th>
+				<th><div class="VRTable-ContentType">Content Type</div></th>
+				<th><div class="VRTable-Language">Language</div></th>
+				<th><div class="VRTable-BarCode">Bar Code</div></th>
+				<th><div class="VRTable-MD5">MD5</div></th>
+				<th><div class="VRTable-File">File</div></th>
+			</tr>
+			{% for video in videoList.1 %}<tr>
+				<td class="VRTableData">{{ video.title }}</td>
+				<td class="VRTableData">{{ video.version }}</td>
+				<td class="VRTableData">{{ video.releaseDate }}</td>
+				<td class="VRTableData">{{ video.contentType }}</td>
+				<td class="VRTableData">{{ video.language }}</td>
+				<td class="VRTableData">{{ video.barCode }}</td>
+				<td class="VRTableData">{{ video.md5 }}</td>
+				<td class="VRTableData"><a href="{{ video.filePath }}">{{ video.fileName }}</a></td>
+			</tr>{% endfor %}
+		</table>
+	</section>
+	<section class="contentSection">
+		{% if videoList.0.1 == videoList.0.2 %}
+		<br/><br/><span class="VRText">Upload files to the repository:</span>
+		<div style="padding:10px;border:1px solid gray">
+			<div style="padding:10px">
+				<button class="VRhiddenFileSubmit, VRButton" onclick="submitFile('id_selectManifest')" name="selectManifestButton">Select Manifest...</button>
+				<span class="VRText" id="selectedManifest">No file selected.</span>
+			</div>
+			<div style="padding:10px">
+				<button class="VRhiddenFileSubmit, VRButton" onclick="submitFile('id_selectVideoFiles')" name="selectVideoFilesButton">Select Files...</button>
+				<span class="VRText" id="selectedVideoFiles">No files selected.</span>
+			</div>
+			<div style="padding:10px">
+				<form action="/upload/{{ videoList.0.1 }}/" method="post" class="VRForm" id="submitVideoForm" enctype="multipart/form-data">
+					<input class="VRhiddenFileButton" id="id_selectManifest" name="selectManifest" type="file"/>
+					<input class="VRhiddenFileButton" id="id_selectVideoFiles" name="selectVideoFiles" type="file" multiple/>
+					<input type="submit" value="Upload Files" class="VRButton"/>
+				</form>
+			</div>
+		</div>
+		{% endif %}
+	</section>
+	<section class="contentSection">
+		<br/><p>You are logged in as '{{ videoList.0.1 }}'.   <a href="/logout/">Log Out</a></p>
+	<section>
+</body>
+<html>

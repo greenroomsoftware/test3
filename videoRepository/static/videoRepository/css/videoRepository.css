@@ -1,0 +1,100 @@
+header {
+    background-color:#f6a828;
+    color:#555;
+    text-align:center;
+	width:930px;
+    padding:5px;
+}
+body {
+	width: 940px;
+	margin: 20px auto; /* center */ 
+	padding: 20px;
+	/*border: 1px solid black;*/
+	font: 70% "Trebuchet MS", sans-serif;
+}
+footer {
+    background-color:#f6a828;
+    color:#555;
+    clear:both;
+    text-align:center;
+	width:930px;
+	padding:5px;	 	 
+}
+p {
+	font: 120% "Trebuchet MS", sans-serif;
+}
+.VRText {
+	font: 120% "Trebuchet MS", sans-serif;
+	padding:2px;
+}
+.contentSection {
+    width:450px;
+	height:300px;
+    float:left;
+    padding:9px;
+	content-positioning:50% 50%;
+	/*border: 1px solid black;*/
+}
+.fullSection {
+    width:900px;
+	height:40px;
+    float:left;
+    padding:9px;
+	content-positioning:50% 50%;
+	/*border: 1px solid black;*/
+}
+.h1Center {
+	text-align:center;
+}
+.VRTable {
+	border-spacing:0px;
+}
+.VRTable-Title {
+	text-align:center;
+    width:130px;
+	padding:3px;
+}
+.VRTable-Version {
+	text-align:center;
+    width:50px;
+	padding:3px;
+}
+.VRTable-ReleaseDate {
+	text-align:center;
+    width:80px;
+	padding:3px;
+}
+.VRTable-ContentType {
+	text-align:center;
+    width:60px;
+	padding:3px;
+}
+.VRTable-Language {
+	text-align:center;
+    width:65px;
+	padding:3px;
+}
+.VRTable-BarCode {
+	text-align:center;
+    width:60px;
+	padding:3px;
+}
+.VRTable-MD5 {
+	text-align:center;
+    width:210px;
+	padding:3px;
+}
+.VRTable-File {
+	text-align:center;
+    width:220px;
+	padding:3px;
+}
+.VRTableData {
+	text-align:center;
+	padding:3px;
+	border: 1px solid gray;
+}
+.VRhiddenFileButton {
+	display:none;
+}
+
