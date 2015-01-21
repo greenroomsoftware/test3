@@ -27,7 +27,7 @@
 	</header>
 	<section class="contentSection">
 		<p>Please log in to view your repository:</p>
-		<form action="/" method="post" class="VRForm">		<!-- Please note that csrf token is set using submitVRForm() in videoRepository.js -->
+		<form action="/" method="post" class="VRForm">{% csrf_token %}
 			<fieldset>
 				{{ loginForm.as_p }}
 				<input type="submit" value="Login" class="VRButton"/>
@@ -36,7 +36,7 @@
 	</section>
 	<section class="contentSection">
 		<p>New user? Please create a new account:</p>
-		<form action="/" method="post" class="VRForm">		<!-- Please note that csrf token is set using submitVRForm() in videoRepository.js -->
+		<form action="/" method="post" class="VRForm">{% csrf_token %}
 			<fieldset>
 				{{ newUserForm.as_p }}
 				<input type="submit" value="Create Account" class="VRButton"/>
@@ -49,7 +49,7 @@
 	{% endif %}
 	</section>
 	<section class="fullSection">
-		<p>Sourcecode can be <a href=".">downloaded here.</a></p>
+		<p>Sourcecode can be <a href="{% static 'test3.tar.bz2' %}">downloaded here.</a></p>
 	</section>
 </body>
 </html>

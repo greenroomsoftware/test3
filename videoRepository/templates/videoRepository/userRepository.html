@@ -64,7 +64,7 @@
 				<span class="VRText" id="selectedVideoFiles">No files selected.</span>
 			</div>
 			<div style="padding:10px">
-				<form action="/upload/{{ videoList.0.1 }}/" method="post" class="VRForm" id="submitVideoForm" enctype="multipart/form-data">
+				<form action="/upload/{{ videoList.0.1 }}/" method="post" class="VRForm" id="submitVideoForm" enctype="multipart/form-data">{% csrf_token %}
 					<input class="VRhiddenFileButton" id="id_selectManifest" name="selectManifest" type="file"/>
 					<input class="VRhiddenFileButton" id="id_selectVideoFiles" name="selectVideoFiles" type="file" multiple/>
 					<input type="submit" value="Upload Files" class="VRButton"/>

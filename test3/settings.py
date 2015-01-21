@@ -58,10 +58,14 @@ WSGI_APPLICATION = 'test3.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+	'default': {
+	    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+	    'NAME': 'test3',
+		'USER': 'test3_postgres',
+		'PASSWORD': 'test3_password',
+		'HOST': 'localhost',
+		'PORT': '5432',
+	}
 }
 
 # Internationalization
@@ -82,8 +86,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/opt/test3_wwwroot/videoRepository/static/'
 
 MEDIA_URL = os.path.join(STATIC_URL, 'media/')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'videoRepository/static/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'videoRepository/static/media/')
 
 TEMP_DIR = os.path.join(BASE_DIR, 'temp')
