@@ -1,0 +1,3 @@
+-Please edit your settings.py so that STATIC and MEDIA paths are correct.
+-Please make sure that the 'temp' folder you specify exists.
+-If you wish to use your super-user to have their own video repository, you will need to add the 'Person' to the 'User' in the admin.  Also, you will need to add a sub-directory in your 'media' folder with the username.  This is all done for you when you create users through the front facing interface.
